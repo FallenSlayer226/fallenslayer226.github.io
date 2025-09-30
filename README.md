@@ -1,2 +1,2 @@
-# fallenslayer226.github.io
+# Website
 Self Hosted Website for Advanced Graphic Design

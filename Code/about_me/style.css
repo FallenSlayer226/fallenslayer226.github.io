@@ -1,0 +1,90 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #000;
+  color: #fff;
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding: 20px;
+  background-color: #000;
+}
+
+header h1 {
+  font-size: 22px;
+  letter-spacing: 2px;
+}
+
+/* Hero Section */
+.main-hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  max-width: 1200px;
+  background-color: #222;
+}
+
+.hero-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2b2b2b;
+  min-height: 400px;
+}
+
+.hero-left h2 {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.hero-right {
+  flex: 1;
+  background-color: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-right img {
+  max-width: 100%;
+  height: auto;
+}
+
+.hero-center img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  max-width: 1200px;
+  background-color: #222;
+}
+
+a:link {
+  color: white; /* unvisited link */
+}
+
+a:visited {
+  color: white; /* visited link */
+}
+
+a:hover {
+  color: white; /* mouse over link */
+}
+
+a:active {
+  color: white; /* selected link */
+}
+
+a {
+  text-decoration: none;
+}

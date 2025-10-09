@@ -60,3 +60,14 @@ header h1 {
   max-width: 50%;
   height: auto;
 }
+
+.arrow-left img {
+  position: relative;
+  right: -25px;
+  rotate: 0.5turn;
+}
+
+.arrow-right img {
+  position: relative;
+  right: 500px;
+}

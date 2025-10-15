@@ -54,6 +54,7 @@ header h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 30px;
 }
 
 .hero-right img {
@@ -61,13 +62,16 @@ header h1 {
   height: auto;
 }
 
+.arrow-left,
+.arrow-right {
+  flex-shrink: 0;
+}
+
 .arrow-left img {
   cursor: pointer;
-  right: -25px;
   rotate: 0.5turn;
 }
 
 .arrow-right img {
   cursor: pointer;
-  right: 675px;
 }

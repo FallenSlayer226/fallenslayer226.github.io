@@ -29,9 +29,8 @@ header h1 {
   justify-content: center;
   align-items: center;
   margin: 20px auto;
-  max-width: 1700px;
-  max-height: 1000px;
-  background-color: #2b2b2b;
+  max-width: 1200px;
+  background-color: #222;
 }
 
 .hero-left {
@@ -57,17 +56,88 @@ header h1 {
 }
 
 .hero-right img {
-  max-width: 50%;
+  max-width: 100%;
   height: auto;
 }
 
-.arrow-left img {
-  position: relative;
-  right: -25px;
-  rotate: 0.5turn;
+/* Stamp Collection */
+.stamp-collection {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  margin: 20px auto;
+  max-width: 1200px;
 }
 
-.arrow-right img {
-  position: relative;
-  right: 500px;
+.stamp-box {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  background-color: #222;
+  margin: 0 5px;
+}
+
+.stamp-box p {
+  font-size: 12px;
+  margin: 0;
+  text-align: center;
+}
+
+.stamp-box img {
+  max-width: 80px;
+  height: auto;
+}
+
+/* Footer / Promo Section */
+footer {
+  display: flex;
+  margin: 40px auto;
+  max-width: 1200px;
+  background-color: #000;
+}
+
+footer .promo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  width: 100%;
+}
+
+footer .promo a {
+  flex: 0 0 calc(33.333% - 14px);
+  max-width: calc(33.333% - 14px);
+  display: block;
+}
+
+footer .promo img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+a:link {
+  color: white; /* unvisited link */
+}
+
+a:visited {
+  color: white; /* visited link */
+}
+
+a:hover {
+  color: white; /* mouse over link */
+}
+
+a:active {
+  color: white; /* selected link */
+}
+
+a {
+  text-decoration: none;
 }

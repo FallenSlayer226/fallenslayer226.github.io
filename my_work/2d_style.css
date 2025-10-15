@@ -54,20 +54,24 @@ header h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 30px;
 }
 
 .hero-right img {
-  max-width: 50%;
+  max-width: 70%;
   height: auto;
+}
+
+.arrow-left,
+.arrow-right {
+  flex-shrink: 0;
 }
 
 .arrow-left img {
   cursor: pointer;
   rotate: 0.5turn;
-  right: -25px;
 }
 
 .arrow-right img {
   cursor: pointer;
-  right: 500px;
 }

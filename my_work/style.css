@@ -71,9 +71,9 @@ header h1 {
 
 .stamp-box {
   flex: 1;
-  display: flex;     
-  justify-content: space-between; 
-  align-items: center;           
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   text-align: center;
   padding: 10px;
   background-color: #222;
@@ -100,21 +100,26 @@ footer {
 }
 
 footer .promo {
-  flex: 1;
-  background-color: #000;
   display: flex;
-  justify-content: center;  /* keep the row centered */
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
   align-items: center;
-  gap: 20px;                /* spacing between images */
-  padding: 20px;
-  overflow: hidden;         /* hides only scrollbars, keeps center look */
+  padding: 40px 20px;
+  width: 100%;
+}
+
+footer .promo a {
+  flex: 0 0 calc(33.333% - 14px);
+  max-width: calc(33.333% - 14px);
+  display: block;
 }
 
 footer .promo img {
-  width: 40%;         /* make them large */
-  max-width: 400px;   /* optional cap */
+  width: 100%;
   height: auto;
   object-fit: cover;
+  display: block;
 }
 
 a:link {

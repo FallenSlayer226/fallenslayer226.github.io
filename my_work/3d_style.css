@@ -1,0 +1,77 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #000;
+  color: #fff;
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding: 20px;
+  background-color: #000;
+}
+
+header h1 {
+  font-size: 22px;
+  letter-spacing: 2px;
+}
+
+/* Hero Section */
+.main-hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  max-width: 1700px;
+  max-height: 1000px;
+  background-color: #2b2b2b;
+}
+
+.hero-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2b2b2b;
+  min-height: 400px;
+}
+
+.hero-left h2 {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.hero-right {
+  flex: 1;
+  background-color: #2b2b2b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.hero-right img {
+  max-width: 70%;
+  height: auto;
+}
+
+.arrow-left,
+.arrow-right {
+  flex-shrink: 0;
+}
+
+.arrow-left img {
+  cursor: pointer;
+  rotate: 0.5turn;
+}
+
+.arrow-right img {
+  cursor: pointer;
+}

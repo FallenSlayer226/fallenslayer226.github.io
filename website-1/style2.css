@@ -1,0 +1,477 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: white;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 12px 30px 12px 0;
+  background-color: #000;
+}
+
+/* Hero Section */
+.main-hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  max-width: 1200px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.hero-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+}
+
+.hero-left h2 {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.hero-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-right img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Stamp Collection */
+.stamp-collection {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  margin: 20px auto;
+  max-width: 1200px;
+}
+
+.stamp-box {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  background-color: #222;
+  margin: 0 5px;
+  border-radius: 10px;
+}
+
+.stamp-box p {
+  font-size: 12px;
+  margin: 0;
+  text-align: center;
+}
+
+.stamp-box img {
+  max-width: 80px;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Footer / Flip-card promo grid */
+footer {
+  margin: 40px auto;
+  max-width: 1200px;
+  background-color: #000;
+}
+
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+  width: 100%;
+}
+
+.card {
+  width: 220px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+  height: 280px;
+}
+
+.card:hover .card-inner {
+  transform: rotateY(-180deg);
+}
+
+.front-face {
+  backface-visibility: hidden;
+}
+
+.front-face img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.back-face {
+  backface-visibility: hidden;
+  background: #2b2b2b; /* card back colour (was #c62600) */
+  color: #fff;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 10px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  transform: rotateY(180deg);
+  padding-top: 24px;
+  padding-bottom: 20px;
+}
+
+.back-face h2 {
+  font-size: 22px;
+  font-weight: 600;
+  padding: 0 10px;
+}
+
+.back-face .btn {
+  color: #fff;
+  font-size: 14px;
+  text-decoration: none;
+  background: #444;
+  padding: 8px 24px;
+  border-radius: 20px;
+  position: absolute;
+  bottom: 20px;
+  width: 75%;
+  text-align: center;
+}
+
+/* Pill nav (site navigation) */
+.pill-nav {
+  --nav-h: 42px;
+  --pill-pad-x: 18px;
+  --pill-gap: 3px;
+  width: max-content;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-sizing: border-box;
+}
+
+.pill-nav-items {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: var(--nav-h);
+  border-radius: calc(var(--nav-h) / 2);
+}
+
+.pill-list {
+  list-style: none;
+  display: flex;
+  align-items: stretch;
+  gap: var(--pill-gap);
+  margin: 0;
+  padding: 3px;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.pill-list > li {
+  display: flex;
+  height: 100%;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 var(--pill-pad-x);
+  background: var(--pill-bg, #fff);
+  color: var(--pill-text, var(--base, #000));
+  text-decoration: none;
+  border-radius: calc(var(--nav-h) / 2);
+  box-sizing: border-box;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.hamburger-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.mobile-menu-button {
+  width: var(--nav-h);
+  height: var(--nav-h);
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.hamburger-line {
+  width: 16px;
+  height: 2px;
+  background: var(--base, #fff);
+  border-radius: 1px;
+  transition: all 0.01s ease;
+  transform-origin: center;
+}
+
+.mobile-menu-popover {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 160px;
+  background: transparent;
+  border-radius: 27px;
+  z-index: 998;
+  opacity: 0;
+  transform-origin: top right;
+  visibility: hidden;
+}
+
+.mobile-menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 3px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.mobile-menu-popover .mobile-menu-link {
+  display: block;
+  padding: 12px 16px;
+  color: var(--pill-text, #fff);
+  background-color: var(--pill-bg, #fff);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 50px;
+  transition: all 0.2s ease;
+}
+
+.mobile-menu-popover .mobile-menu-link:hover {
+  cursor: pointer;
+  background-color: var(--base);
+  color: var(--hover-text, #fff);
+}
+/* Large hero flip card (poster pages) */
+.hero-card-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.hero-card {
+  perspective: 1600px;
+  cursor: pointer;
+}
+
+.hero-card-inner {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1.4s; /* flip speed */
+}
+
+.hero-card:hover .hero-card-inner {
+  transform: rotateY(-180deg);
+  transition-delay: 0.6s; /* wait before flipping on hover */
+}
+
+.hero-front {
+  backface-visibility: hidden;
+}
+
+.hero-card .hero-front img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: calc(100vh - 110px); /* fills the window below the menu; change to resize the card */
+  border-radius: 10px;
+}
+
+.hero-back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotateY(180deg);
+  background: #2b2b2b; /* card back colour (was #c62600) */
+  color: #fff;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 44px;
+  padding-bottom: 36px;
+  text-align: center;
+}
+
+.hero-back h2 {
+  font-size: 40px;
+  font-weight: 600;
+  padding: 0 20px;
+}
+
+.hero-back .btn {
+  color: #fff;
+  font-size: 22px;
+  text-decoration: none;
+  background: #444;
+  padding: 14px 40px;
+  border-radius: 40px;
+  position: absolute;
+  bottom: 36px;
+  width: 75%;
+  text-align: center;
+}
+
+/* Resume flip card (about_me.html) */
+.resume-card {
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
+  perspective: 1600px;
+  cursor: pointer;
+}
+.resume-card-inner {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1.4s; /* flip speed */
+}
+.resume-card:hover .resume-card-inner {
+  transform: rotateY(-180deg);
+  transition-delay: 0.6s; /* wait before flipping on hover */
+}
+.resume-front {
+  backface-visibility: hidden;
+}
+.resume-card .resume-front img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+.resume-back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotateY(180deg);
+  background: #2b2b2b; /* card back colour (was #c62600) */
+  color: #fff;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 44px;
+  padding-bottom: 36px;
+  text-align: center;
+}
+.resume-back h2 {
+  font-size: 40px;
+  font-weight: 600;
+  padding: 0 20px;
+}
+.social-media {
+  margin-top: auto; /* pushes the icons to the bottom of the card */
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+.social-media a {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #444;
+  color: #fff;
+  font-size: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.social-media a:hover {
+  background: #5a5a5a;
+}
+.resume-back .btn {
+  margin-top: 28px;
+  width: 75%;
+  color: #fff;
+  font-size: 22px;
+  text-decoration: none;
+  background: #444;
+  padding: 14px 40px;
+  border-radius: 40px;
+  text-align: center;
+  transition: background 0.2s;
+}
+.resume-back .btn:hover {
+  background: #5a5a5a;
+}

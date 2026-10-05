@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Main Page</title>
+    <link rel="stylesheet" href="../style2.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="pill-nav" aria-label="Site" id="pillNav">
+        <div class="pill-nav-items" id="navItems">
+          <ul class="pill-list" role="menubar" id="pillList"></ul>
+        </div>
+
+        <div class="hamburger-wrap" id="hamburgerWrap">
+          <button
+            class="mobile-menu-button"
+            aria-label="Toggle menu"
+            id="hamburger"
+          >
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+
+          <div class="mobile-menu-popover" id="mobileMenu">
+            <ul class="mobile-menu-list" id="mobileMenuList"></ul>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Large flip card -->
+    <section class="hero-card-wrap">
+      <div class="hero-card">
+        <div class="hero-card-inner">
+          <div class="hero-front">
+            <img src="images/Jam.jpg" alt="Main Artwork" />
+          </div>
+          <div class="hero-back">
+            <h2>Description</h2>
+            <a href="poster_2.html" class="btn">Next</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      (function () {
+        const config = {
+          homeItem: { label: "HOME", href: "../index.html" },
+          menuItems: [
+            { label: "MY PORTFOLIO", href: "portfolio.html" },
+            { label: "ABOUT ME", href: "../about_me/about_me.html" },
+            { label: "NEWSLETTER", href: "../newsletter.html" },
+          ],
+          activeHref: "portfolio.html",
+          ease: "power3.out",
+          baseColor: "#fff",
+          pillColor: "#6b3f3f",
+          hoveredPillTextColor: "#6b3f3f",
+          pillTextColor: null,
+          initialLoadAnimation: true,
+        };
+        const resolvedPillTextColor = config.pillTextColor ?? config.baseColor;
+
+        const navEl = document.getElementById("pillNav");
+        const mobileMenuEl = document.getElementById("mobileMenu");
+        [navEl, mobileMenuEl].forEach((el) => {
+          el.style.setProperty("--base", config.baseColor);
+          el.style.setProperty("--pill-bg", config.pillColor);
+          el.style.setProperty("--hover-text", config.hoveredPillTextColor);
+          el.style.setProperty("--pill-text", resolvedPillTextColor);
+        });
+
+        const pillListEl = document.getElementById("pillList");
+        const mobileMenuListEl = document.getElementById("mobileMenuList");
+
+        const homeLi = document.createElement("li");
+        homeLi.setAttribute("role", "none");
+
+        const homeLink = document.createElement("a");
+        homeLink.setAttribute("role", "menuitem");
+        homeLink.href = config.homeItem.href;
+        homeLink.className =
+          "pill" +
+          (config.activeHref === config.homeItem.href ? " is-active" : "");
+        homeLink.setAttribute(
+          "aria-label",
+          config.homeItem.ariaLabel || config.homeItem.label,
+        );
+        homeLink.textContent = config.homeItem.label;
+
+        homeLi.appendChild(homeLink);
+        pillListEl.appendChild(homeLi);
+
+        config.menuItems.forEach((item) => {
+          const mLi = document.createElement("li");
+          const mA = document.createElement("a");
+          mA.href = item.href;
+          mA.className =
+            "mobile-menu-link" +
+            (config.activeHref === item.href ? " is-active" : "");
+          mA.textContent = item.label;
+          mA.addEventListener("click", () => closeMobileMenu());
+          mLi.appendChild(mA);
+          mobileMenuListEl.appendChild(mLi);
+        });
+
+        gsap.set(mobileMenuEl, { visibility: "hidden", opacity: 0, scaleY: 1 });
+
+        if (config.initialLoadAnimation) {
+          const navItems = document.getElementById("navItems");
+
+          if (navItems) {
+            gsap.set(navItems, { width: 0, overflow: "hidden" });
+            gsap.to(navItems, {
+              width: "auto",
+              duration: 0.6,
+              ease: config.ease,
+            });
+          }
+        }
+
+        const hamburger = document.getElementById("hamburger");
+        const hamburgerWrap = document.getElementById("hamburgerWrap");
+        let isMobileMenuOpen = false;
+        let closeTimer = null;
+
+        function openMobileMenu() {
+          if (closeTimer) {
+            clearTimeout(closeTimer);
+            closeTimer = null;
+          }
+          if (isMobileMenuOpen) return;
+          isMobileMenuOpen = true;
+          const lines = hamburger.querySelectorAll(".hamburger-line");
+          gsap.to(lines[0], {
+            rotation: 45,
+            y: 3,
+            duration: 0.3,
+            ease: config.ease,
+          });
+          gsap.to(lines[1], {
+            rotation: -45,
+            y: -3,
+            duration: 0.3,
+            ease: config.ease,
+          });
+
+          gsap.set(mobileMenuEl, { visibility: "visible" });
+          gsap.fromTo(
+            mobileMenuEl,
+            { opacity: 0, y: 10, scaleY: 1 },
+            {
+              opacity: 1,
+              y: 0,
+              scaleY: 1,
+              duration: 0.3,
+              ease: config.ease,
+              transformOrigin: "top right",
+            },
+          );
+        }
+
+        function closeMobileMenu() {
+          if (!isMobileMenuOpen) return;
+          isMobileMenuOpen = false;
+          const lines = hamburger.querySelectorAll(".hamburger-line");
+          gsap.to(lines[0], {
+            rotation: 0,
+            y: 0,
+            duration: 0.3,
+            ease: config.ease,
+          });
+          gsap.to(lines[1], {
+            rotation: 0,
+            y: 0,
+            duration: 0.3,
+            ease: config.ease,
+          });
+
+          gsap.to(mobileMenuEl, {
+            opacity: 0,
+            y: 10,
+            scaleY: 1,
+            duration: 0.2,
+            ease: config.ease,
+            transformOrigin: "top right",
+            onComplete: () => gsap.set(mobileMenuEl, { visibility: "hidden" }),
+          });
+        }
+
+        hamburgerWrap.addEventListener("mouseenter", openMobileMenu);
+        hamburgerWrap.addEventListener("mouseleave", () => {
+          closeTimer = setTimeout(closeMobileMenu, 150);
+        });
+
+        hamburger.addEventListener("click", () => {
+          if (isMobileMenuOpen) {
+            closeMobileMenu();
+          } else {
+            openMobileMenu();
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
